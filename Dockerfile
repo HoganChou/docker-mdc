@@ -71,7 +71,7 @@ COPY --from=dlib-bin-builder $DLIB_WHL_DIR $DLIB_WHL_DIR
 
 RUN mkdir -p /tmp/mdc && cd /tmp/mdc \
     # get mdc source code
-    && wget -O- https://github.com/yoshiko2/Movie_Data_Capture/archive/$MDC_SOURCE_VERSION.tar.gz | tar xz -C /tmp/mdc --strip-components 1 \
+    && wget -O- https://github.com/HoganChou/Movie_Data_Capture/archive/$MDC_SOURCE_VERSION.tar.gz | tar xz -C /tmp/mdc --strip-components 1 \
     && python3 -m venv /opt/venv && . /opt/venv/bin/activate \
     && pip install --upgrade \
         pip \
@@ -97,8 +97,8 @@ ARG VERSION
 
 LABEL build_version="catfight360.com version:${VERSION} Build-date:${BUILD_DATE}"
 LABEL maintainer="VergilGao"
-LABEL build_from="https://github.com/yoshiko2/Movie_Data_Capture"
-LABEL org.opencontainers.image.source="https://github.com/VergilGao/docker-mdc"
+LABEL build_from="https://github.com/HoganChou/Movie_Data_Capture"
+LABEL org.opencontainers.image.source="https://github.com/HoganChou/docker-mdc"
 
 ENV TZ="Asia/Shanghai"
 ENV UID=99
